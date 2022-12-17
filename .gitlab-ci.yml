@@ -1,0 +1,38 @@
+stages:
+    - build
+    - deploy
+
+build:
+    stage: build
+    only:
+        - master
+        - /^(release).*$/
+    variables:
+        CI: "false"
+    script:
+        - . ~/.nvm/nvm.sh
+        - nvm use 16.14.2
+        - cd ./
+        - yarn
+        - yarn build
+    artifacts:
+        paths:
+            - ./build
+        expire_in: 2 day
+
+deploy-dev:
+    only:
+        - master
+    stage: deploy
+    dependencies:
+        - build
+    script: 
+        - echo "$SSH_PRIVATE_KEY" > sshkey
+        - chmod 400 sshkey
+        - ssh -l root -i sshkey -p 3222 root@91.221.67.11 'rm -rf /home/apps/front/taxes-and-sales-page-dev/*'
+        - scp -o stricthostkeychecking=no -i sshkey -P 3222 -r ./build/* root@91.221.67.11:/home/apps/front/taxes-and-sales-page-dev/
+        - ssh -l root -i sshkey -p 3222 root@185.117.118.123 'rm -rf /home/apps/front/taxes-and-sales-page-dev/*'
+        - scp -o stricthostkeychecking=no -i sshkey -P 3222 -r ./build/* root@185.117.118.123:/home/apps/front/taxes-and-sales-page-dev/
+        - rm sshkey
+        - echo "For browse use link"
+        - echo $DEPLOY_URL
