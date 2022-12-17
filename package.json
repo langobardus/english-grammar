@@ -1,6 +1,7 @@
 {
   "name": "mci-new",
   "version": "0.1.0",
+  "homepage": "https://langobardus.github.io/english-grammar",
   "private": true,
   "author": "andrii@easproject.com",
   "dependencies": {
