@@ -1,10 +1,10 @@
 {
   "files": {
-    "main.css": "/static/css/main.09797c4b.css",
-    "main.js": "/static/js/main.63bf3c87.js",
-    "index.html": "/index.html",
-    "main.09797c4b.css.map": "/static/css/main.09797c4b.css.map",
-    "main.63bf3c87.js.map": "/static/js/main.63bf3c87.js.map"
+    "main.css": "/english-grammar/static/css/main.09797c4b.css",
+    "main.js": "/english-grammar/static/js/main.63bf3c87.js",
+    "index.html": "/english-grammar/index.html",
+    "main.09797c4b.css.map": "/english-grammar/static/css/main.09797c4b.css.map",
+    "main.63bf3c87.js.map": "/english-grammar/static/js/main.63bf3c87.js.map"
   },
   "entrypoints": [
     "static/css/main.09797c4b.css",
