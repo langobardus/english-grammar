@@ -81,6 +81,13 @@ const PastSimpleQuestion: FC<{ pron: TPronoun }> = ({ pron }) => (
 			</b>{' '}
 			{blue(pron === PRONOUN_I ? pron : pron.toLowerCase())} <b>go</b> home last night?
 		</p>
+		<p>
+			{green('What time')}{' '}
+			<b>
+				<i style={{ color: '#a40101' }}>did</i>
+			</b>{' '}
+			{blue(pron === PRONOUN_I ? pron : pron.toLowerCase())} <b>go</b> home last night?
+		</p>
 	</div>
 );
 
