@@ -227,7 +227,7 @@ const PresentSimpleAffirmative: FC<{ pron: TPronoun }> = ({ pron }) => (
 			{blue(pron)} <b>{isHeSheItPronoun(pron) ? 'goes' : 'go'}</b> home every day.
 		</p>
 		<p>
-			{pron} <b>can play</b> the guitar.
+			{blue(pron)} <b>can play</b> the guitar.
 		</p>
 	</div>
 );
@@ -241,7 +241,7 @@ const PresentSimpleNegative: FC<{ pron: TPronoun }> = ({ pron }) => (
 			home every day.
 		</p>
 		<p>
-			{pron} <b>can&apos;t play</b> the guitar.
+			{blue(pron)} <b>can&apos;t play</b> the guitar.
 		</p>
 	</div>
 );
