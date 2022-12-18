@@ -29,7 +29,7 @@ const isHeSheItPronoun = (pron: TPronoun) =>
 	pron === PRONOUN_HE || pron === PRONOUN_SHE || pron === PRONOUN_IT;
 const red = (text: string) => <b style={{ color: '#a40101' }}>{text}</b>;
 const blue = (text: string) => <b style={{ color: '#40a9ff' }}>{text}</b>;
-const green = (text: string) => <b style={{ color: '#95be4' }}>{text}</b>;
+const green = (text: string) => <b style={{ color: '#95be47' }}>{text}</b>;
 
 const tag = (text: string) => <span className="tag">{text}</span>;
 
@@ -162,13 +162,52 @@ const PresentToBeAffirmative: FC<{ pron: TPronoun }> = ({ pron }) => (
 );
 const PresentToBeNegative: FC<{ pron: TPronoun }> = ({ pron }) => (
 	<div>
-		{blue(pron)}{' '}
-		<b>
-			<i style={{ color: '#a40101' }}>
-				{pron === PRONOUN_I ? 'am not' : isPluralPronoun(pron) ? "aren't" : "isn't"}
-			</i>
-		</b>{' '}
-		sleepy at work.
+		<p>
+			{blue(pron)}{' '}
+			<b>
+				<i style={{ color: '#a40101' }}>
+					{pron === PRONOUN_I ? 'am not' : isPluralPronoun(pron) ? "aren't" : "isn't"}
+				</i>
+			</b>{' '}
+			sleepy at work.
+		</p>
+		{pron === PRONOUN_IT && (
+			<p>
+				<b>
+					<i>There</i>
+				</b>{' '}
+				<b>
+					<i style={{ color: '#a40101' }}>isn&apos;t</i>
+				</b>{' '}
+				a book on the desk.
+			</p>
+		)}
+		{pron === PRONOUN_THEY && (
+			<p>
+				<b>
+					<i>There</i>
+				</b>{' '}
+				<b>
+					<i style={{ color: '#a40101' }}>aren&apos;t</i>
+				</b>{' '}
+				books on the desk.
+			</p>
+		)}
+
+		{pron === PRONOUN_IT && (
+			<p>
+				<b>
+					<i>There</i>
+				</b>{' '}
+				<b>
+					<i style={{ color: '#a40101' }}>isn&apos;t</i>
+				</b>{' '}
+				<b>
+					<i>some</i>
+				</b>{' '}
+				milk in the fridge.
+			</p>
+		)}
 	</div>
 );
 const PresentToBeQuestion: FC<{ pron: TPronoun }> = ({ pron }) => (
@@ -216,13 +255,14 @@ const PresentSimpleQuestion: FC<{ pron: TPronoun }> = ({ pron }) => (
 			{blue(pron === PRONOUN_I ? pron : pron.toLowerCase())} <b>go</b> home every day?
 		</p>
 		<p>
-			<b>Can</b> {blue(pron === PRONOUN_I ? pron : pron.toLowerCase())} <b>play</b> the guitar?
-		</p>
-		<p>
+			{green('What time')}{' '}
 			<b>
-				<i style={{ color: '#a40101' }}>{isHeSheItPronoun(pron) ? 'Does' : 'Do'}</i>
+				<i style={{ color: '#a40101' }}>{isHeSheItPronoun(pron) ? 'does' : 'do'}</i>
 			</b>{' '}
 			{blue(pron === PRONOUN_I ? pron : pron.toLowerCase())} <b>go</b> home every day?
+		</p>
+		<p>
+			<b>Can</b> {blue(pron === PRONOUN_I ? pron : pron.toLowerCase())} <b>play</b> the guitar?
 		</p>
 	</div>
 );
