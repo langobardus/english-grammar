@@ -13,7 +13,7 @@ import {
 	PRONOUN_SHE,
 	PRONOUN_THEY,
 	PRONOUN_WE,
-	PRONOUN_YUO,
+	PRONOUN_YOU,
 	QUESTIONS_SENTENCE,
 	SIMPLE_ASPECT,
 	TO_BE,
@@ -22,11 +22,11 @@ import {
 
 export type TPronoun =
 	| typeof PRONOUN_I
-	| typeof PRONOUN_YUO
+	| typeof PRONOUN_YOU
 	| typeof PRONOUN_HE
 	| typeof PRONOUN_SHE
 	| typeof PRONOUN_IT
-	| typeof PRONOUN_YUO
+	| typeof PRONOUN_YOU
 	| typeof PRONOUN_WE
 	| typeof PRONOUN_THEY;
 

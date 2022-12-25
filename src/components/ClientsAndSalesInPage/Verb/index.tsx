@@ -11,6 +11,7 @@ import {
 	TO_BE,
 	typeOfSentenceArray,
 } from './constants';
+import { Sentence } from './sentence';
 import { sentObj } from './sentObj';
 import { TAspectTenseVerb, TPronoun, TTenseVerb, TToBeOrNotToBe, TTypeOfSentence } from './types';
 
@@ -20,6 +21,36 @@ export const Verb: FC = () => {
 	const [typeOfSentence, setTypeOfSentence] = useState<TTypeOfSentence>(AFFIRMATIVE_SENTENCE);
 	const [toBeOrNotToBe, setToBeOrNotToBe] = useState<TToBeOrNotToBe>(TO_BE);
 	const [pronoun, setPronoun] = useState<TPronoun>(PRONOUN_I);
+
+	const [subject, setSubject] = useState('');
+	const [predicate, setPredicate] = useState('');
+	const [object, setObject] = useState('');
+	const [adverbialModifierOfPlace, setAdverbialModifierOfPlace] = useState('');
+	const [adverbialModifierOfTime, setAdverbialModifierOfTime] = useState('');
+
+	const InputSentence = new Sentence({
+		subject,
+		predicate,
+		object,
+		adverbialModifierOfPlace,
+		adverbialModifierOfTime,
+	});
+
+	const setSubjectHandler = (txt: string) => {
+		setSubject(txt);
+	};
+	const setPredicateHandler = (txt: string) => {
+		setPredicate(txt);
+	};
+	const setObjectHandler = (txt: string) => {
+		setObject(txt);
+	};
+	const setAdverbialModifierOfPlaceHandler = (txt: string) => {
+		setAdverbialModifierOfPlace(txt);
+	};
+	const setAdverbialModifierOfTimeHandler = (txt: string) => {
+		setAdverbialModifierOfTime(txt);
+	};
 
 	const tenseVerbHandler = (tense: TTenseVerb) => {
 		setTenseVerb(tense);
@@ -34,12 +65,13 @@ export const Verb: FC = () => {
 		setToBeOrNotToBe(sentence);
 	};
 	const pronounHandler = (pr: TPronoun) => {
+		setSubjectHandler(pr);
 		setPronoun(pr);
 	};
 
 	return (
 		<div className="box">
-			<TableBoxHeader title="В каком времени предложение?" text="" />
+			<TableBoxHeader title="What tense is the  sentence?" text="" />
 			<div className="button-block">
 				{tenseVerbArray.map((item) => (
 					<button
@@ -101,7 +133,37 @@ export const Verb: FC = () => {
 			<div className="total">
 				<p>{`${tenseVerb} ${aspectTenseVerb} / ${typeOfSentence}`}</p>
 				<p>{sentObj?.[tenseVerb]?.[aspectTenseVerb]?.[typeOfSentence]?.Scheme ?? ''}</p>
+				<p>
+					<input
+						type="text"
+						placeholder="subject"
+						value={subject}
+						onChange={(e) => setSubjectHandler(e.target.value)}
+					/>{' '}
+					<input
+						type="text"
+						placeholder="predicate"
+						onChange={(e) => setPredicateHandler(e.target.value)}
+					/>{' '}
+					<input
+						type="text"
+						placeholder="object"
+						onChange={(e) => setObjectHandler(e.target.value)}
+					/>{' '}
+					<input
+						type="text"
+						placeholder="adverbial modifier of place"
+						onChange={(e) => setAdverbialModifierOfPlace(e.target.value)}
+					/>{' '}
+					<input
+						type="text"
+						placeholder="adverbial modifier of time"
+						onChange={(e) => setAdverbialModifierOfTime(e.target.value)}
+					/>
+				</p>
 			</div>
+			<div className="result">{InputSentence.setAspectTence(tenseVerb, aspectTenseVerb)}</div>
+			<hr style={{ margin: '0 20px' }} />
 
 			<div className="result">
 				{sentObj?.[tenseVerb]?.[aspectTenseVerb]?.[typeOfSentence]?.[pronoun] ?? 'Еще не учили!'}

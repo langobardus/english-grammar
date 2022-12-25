@@ -17,7 +17,7 @@ export const TO_BE = 'to be';
 export const NOT_TO_BE = 'not to be';
 
 export const PRONOUN_I = 'I';
-export const PRONOUN_YUO = 'You';
+export const PRONOUN_YOU = 'You';
 export const PRONOUN_HE = 'He';
 export const PRONOUN_SHE = 'She';
 export const PRONOUN_IT = 'It';
@@ -26,7 +26,7 @@ export const PRONOUN_THEY = 'They';
 
 export const pronounArray: TPronoun[] = [
 	PRONOUN_I,
-	PRONOUN_YUO,
+	PRONOUN_YOU,
 	PRONOUN_HE,
 	PRONOUN_SHE,
 	PRONOUN_IT,
@@ -47,3 +47,51 @@ export const typeOfSentenceArray: TTypeOfSentence[] = [
 	QUESTIONS_SENTENCE,
 ];
 export const toBeOrNotToBeArray: TToBeOrNotToBe[] = [TO_BE, NOT_TO_BE];
+
+export const ADVERBIAL_MODIFIER_OF_INDEFINITE_TIME_ARRAY = [
+	'always',
+	'usually',
+	'seldom',
+	'sometimes',
+	'often',
+	'ever',
+	'already',
+	'soon',
+	'never',
+	'just',
+];
+
+export const IRREGULAR_VERBS = [
+	['do', 'did', 'done'],
+	['go', 'went', 'gone'],
+	['have', 'had', 'had'],
+	['say', 'said', 'said'],
+	['make', 'made', 'made'],
+	['take', 'took', 'taken'],
+	['come', 'came', 'come'],
+];
+
+export const VOWELS = ['a', 'e', 'i', 'o', 'u'];
+export const CONSONANTS = [
+	'b',
+	'c',
+	'd',
+	'f',
+	'g',
+	'j',
+	'k',
+	'l',
+	'm',
+	'n',
+	'p',
+	'q',
+	's',
+	't',
+	'v',
+	'x',
+	'z',
+	'h',
+	'r',
+	'w',
+	'y',
+];

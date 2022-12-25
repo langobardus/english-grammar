@@ -16,6 +16,8 @@
 }
 .box{
   background: #f8f1e7;
+  border-radius: 5px;
+  box-shadow: rgb(0 0 0 / 50%) 0px 0px 10px 0px;
 }
 .button-block{
   background: #f8f1e7;

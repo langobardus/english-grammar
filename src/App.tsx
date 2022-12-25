@@ -1,7 +1,7 @@
 import { FC } from 'react';
 import './App.css';
 import { ClientsAndSalesInPage } from 'components/ClientsAndSalesInPage';
-import 'antd/dist/antd.css';
+// import 'antd/dist/antd.css';
 
 const App: FC = () => {
 	return (
